@@ -6,6 +6,7 @@
 <template>
 	<learn>aiml/bio.aiml</learn>
 	<learn>aiml/skills.aiml</learn>
+	<learn>aiml/education.aiml</learn>
 	<!--
 	<learn>aiml/calender.aiml</learn>
 	<learn>aiml/whatday_usa.aiml</learn>

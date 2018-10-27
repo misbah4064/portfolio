@@ -2,65 +2,68 @@
 <aiml version="1.0">
  
 <category>
-	<pattern>WHAT IS YOUR NAME</pattern>
-	<template><srai>NAME</srai></template>
-</category>
-<category>	
-	<pattern>WHAT'S YOUR NAME</pattern>
-	<template><srai>NAME</srai></template>
-</category>
-<category>
-	<pattern>WHATS YOUR NAME</pattern>
-	<template><srai>NAME</srai></template>
-</category>
-<category>
-	<pattern>W* NAME*</pattern>
-	<template><srai>NAME</srai></template>
-</category>
-<category>
-	<pattern>*NAME*</pattern>
-	<template><srai>NAME</srai></template>
-</category>
-<category>
-	<pattern>NAME</pattern>
-	<template>I'm a chatbot. But my master's name is Misbah</template>
+	<pattern>WHAT EDUCATION LEVEL</pattern>
+	<template>
+		<srai>EDUCATION</srai>
+	</template>
 </category>
 
 <category>
-	<pattern>WHERE IS MISBAH FROM</pattern>
-	<template><srai>WHERE ARE YOU FROM</srai></template>
+	<pattern>TELL ME ABOUT HIS EDUCATION</pattern>
+	<template>
+		<srai>EDUCATION</srai>
+	</template>
 </category>
 
 <category>
-	<pattern>WHERE ARE YOU</pattern>
-	<template><srai>WHERE ARE YOU FROM</srai></template>
+	<pattern>TALK ABOUT EDUCATION</pattern>
+	<template>
+		<srai>EDUCATION</srai>
+	</template>
 </category>
 
 <category>
-	<pattern>WHERE ARE YOU *</pattern>
-	<template><srai>WHERE ARE YOU FROM</srai></template>
+	<pattern>TELL ME EDUCATION</pattern>
+	<template>
+		<srai>EDUCATION</srai>
+	</template>
 </category>
 
 <category>
-	<pattern>WHERE ARE YOU FROM</pattern>
-	<template>I reside in the cloud. But Misbah currently resides in DeKalb, IL</template>
-</category>
-
-
-<category>
-	<pattern>WHAT IS * RELIGION</pattern>
-	<template>Misbah's religion is Islam</template>
+	<pattern>MISBAH'S EDUCATION *</pattern>
+	<template>
+		<srai>EDUCATION</srai>
+	</template>
 </category>
 
 <category>
-	<pattern>HOW OLD *</pattern>
-	<template>Misbah was born in the year 1990, so he's about 28 yrs now</template>
+	<pattern>* EDUCATION *</pattern>
+	<template>
+		<srai>EDUCATION</srai>
+	</template>
 </category>
 
 <category>
-	<pattern>HOW TALL *</pattern>
-	<template>Misbah is about 6 feet tall</template>
+	<pattern>* EDUCATION</pattern>
+	<template>
+		<srai>EDUCATION</srai>
+	</template>
+</category>
+
+<category>
+	<pattern>EDUCATION *</pattern>
+	<template>
+		<srai>EDUCATION</srai>
+	</template>
 </category>
 
 
+
+
+<category>
+	<pattern>EDUCATION</pattern>
+	<template>
+		Misbah did his Bachelor's in Engineering from Osmania University (in 2012) will be graduating with a Master's degree from Northern Illinois University in 2019. He has been an honor roll student all throught. Have received a gold medal for academic excellence.
+	</template>
+</category>
 </aiml>
