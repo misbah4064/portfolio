@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="1.0">
+ 
+<category>
+	<pattern>WHAT IS YOUR NAME</pattern>
+	<template><srai>NAME</srai></template>
+</category>
+<category>	
+	<pattern>WHAT'S YOUR NAME</pattern>
+	<template><srai>NAME</srai></template>
+</category>
+<category>
+	<pattern>WHATS YOUR NAME</pattern>
+	<template><srai>NAME</srai></template>
+</category>
+<category>
+	<pattern>W* NAME*</pattern>
+	<template><srai>NAME</srai></template>
+</category>
+<category>
+	<pattern>*NAME*</pattern>
+	<template><srai>NAME</srai></template>
+</category>
+<category>
+	<pattern>NAME</pattern>
+	<template>I'm a chatbot. But my master's name is Misbah</template>
+</category>
+
+<category>
+	<pattern>WHERE IS MISBAH FROM</pattern>
+	<template><srai>WHERE ARE YOU FROM</srai></template>
+</category>
+
+<category>
+	<pattern>WHERE ARE YOU</pattern>
+	<template><srai>WHERE ARE YOU FROM</srai></template>
+</category>
+
+<category>
+	<pattern>WHERE ARE YOU *</pattern>
+	<template><srai>WHERE ARE YOU FROM</srai></template>
+</category>
+
+<category>
+	<pattern>WHERE ARE YOU FROM</pattern>
+	<template>I reside in the cloud. But Misbah currently resides in DeKalb, IL</template>
+</category>
+
+
+<category>
+	<pattern>WHAT IS * RELIGION</pattern>
+	<template>Misbah's religion is Islam</template>
+</category>
+
+<category>
+	<pattern>HOW OLD *</pattern>
+	<template>Misbah was born in the year 1990, so he's about 28 yrs now</template>
+</category>
+
+<category>
+	<pattern>HOW TALL *</pattern>
+	<template>Misbah is about 6 feet tall</template>
+</category>
+
+
+</aiml>

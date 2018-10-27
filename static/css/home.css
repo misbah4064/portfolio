@@ -4,14 +4,14 @@ body {
 }
 
 .top-text{
-    min-height: calc(100vh - 128px);
+    min-height: calc(60vh - 228px);
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
 .middle-text{
-  margin-top: 44px;
+  margin-top: 0px;
 }
 
 .container {
@@ -43,10 +43,16 @@ body {
   font-family: 'Roboto', sans-serif;
 }
 
+.top-text-small{
+  font-size: 30px;
+  font-family: 'Roboto',sans-serif;
+}
+
 .fixed-wrapper {
     position: fixed;
-    right: 50%;
-    top: calc(50% - 135px);
+    right: 55%;
+    top: calc(50% - 155px);
+    width: 40%
 }
 
 ul li a {

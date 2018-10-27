@@ -1,20 +1,47 @@
 import io
 import json
 import os
-
+import aiml
 import datetime
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, jsonify, url_for
 
 app = Flask(__name__)
-app.config['GA_TRACKING_ID'] = os.environ['GA_TRACKING_ID']
+#app.config['GA_TRACKING_ID'] = os.environ['GA_TRACKING_ID']
 
 resume_pdf_link = 'https://drive.google.com/open?id=0B2BrrDjIiyvmcWp5T194cy00UmM'
+kernel = aiml.Kernel()
+def save(force):
+    if force == True:
+        kernel.saveBrain("bot_brain.brn")
 
 
 @app.route('/')
 def index():
-    age = int((datetime.date.today() - datetime.date(1995, 4, 22)).days / 365)
+    age = int((datetime.date.today() - datetime.date(1990, 5, 13)).days / 365)
     return render_template('home.html', age=age)
+
+@app.route("/ask", methods=['POST','GET'])
+def ask():
+    message = str(request.form['chatmessage'])
+    
+    if os.path.isfile("bot_brain.brn"):
+        kernel.bootstrap(brainFile = "bot_brain.brn")
+    else:
+        kernel.bootstrap(learnFiles = os.path.abspath("aiml/std-startup.xml"), commands = "load aiml b")
+        kernel.saveBrain("bot_brain.brn")
+    
+    if message == "save":
+        save(True)
+        return jsonify({'status':'OK','answer':"Saved"})
+    elif message == "quit": 
+        exit()
+        
+
+    # kernel now ready for use
+    while True:
+        bot_response = kernel.respond(message)
+        return jsonify({'status':'OK','answer':bot_response})
+                    # print bot_response
 
 
 @app.route('/timeline')

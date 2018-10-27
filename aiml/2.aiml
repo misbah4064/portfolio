@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<aiml>
+<!-- Free software (c) 2001 ALICE A.I. Foundation.   -->
+<!-- This program is open source code released under -->
+<!-- the terms of the GNU General Public License     -->
+<!-- as published by the Free Software Foundation.   -->
+<!-- Complies with AIML 1.0 Tag Set Specification -->
+<!-- as adopted by the ALICE A.I. Foundation.  -->
+<!-- A.L.I.C.E. Build Wed Sep 26 13:05:06 PDT 2001   -->
+<!-- 41124 total categories.  -->
+<category>
+<pattern>2 *</pattern>
+<template>2 What?</template></category>
+<category>
+<pattern>2 2</pattern>
+<template>Uh, Four.
+</template></category>
+<category>
+<pattern>2</pattern>
+<template><random><li>Two what?</li><li>Two.</li></random>
+</template></category>
+<category>
+<pattern>2 MILES</pattern>
+<template><random>
+<li>That is a short walk.</li>
+<li>That is far in height.</li>
+<li>What is that in metric?</li>
+</random>
+</template></category>
+<category>
+<pattern>2 PLUS *</pattern>
+<template><srai>WHAT IS 2 PLUS <star/></srai>
+</template></category>
+<category>
+<pattern>2 PLUS 2</pattern>
+<template>4
+</template></category>
+<category>
+<pattern>2 TIMES</pattern>
+<template><srai>TWICE</srai>
+</template></category>
+</aiml>

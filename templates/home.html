@@ -11,6 +11,82 @@
 
 <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename = 'css/home.css') }}">
 <script type="text/javascript" src="{{ url_for('static', filename = 'js/home.js') }}"></script>
+
+
+
+<script type="text/javascript" src="{{url_for('static',filename='js/bootstrap1.min.js')}}"></script>
+<script type="text/javascript" src="{{url_for('static',filename='jquery.min.js')}}"></script>
+<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/bootstrap.min.css')}}">
+  <style>
+  .chat
+  {
+    list-style: none;
+    margin: auto auto auto auto;
+    padding: 0;
+}
+
+.chat li
+{
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    border-bottom: 1px dotted #B3A9A9;
+}
+
+.chat li.left .chat-body
+{
+    margin-left: 60px;
+}
+
+.chat li.right .chat-body
+{
+    margin-right: 60px;
+}
+
+
+.chat li .chat-body p
+{
+    margin: 0;
+    color: #777777;
+}
+
+.panel .slidedown .glyphicon, .chat .glyphicon
+{
+    margin-right: 5px;
+}
+
+.panel-body
+{
+    overflow-y: scroll;
+    height: 250px;
+    padding: 25px auto 25px auto;
+}
+.container{
+    padding-top: 70px;
+    width:100%;
+}
+
+::-webkit-scrollbar-track
+{
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar
+{
+    width: 12px;
+    background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar-thumb
+{
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+    background-color: #555;
+}
+
+</style>
+
+
+
 {% endblock %}
 
 {% block body %}
@@ -18,76 +94,163 @@
     <div class="wrapper fixed-wrapper">
         <section id="terminal">
             <div id="terminal-container">
-                <div class="terminal">
-                    <div class="window-title">
-                        <div class="win-buttons">
-                            <a id="close" class="button" href="#"></a>
-                            <a id="min" class="button" href="#"></a>
-                            <a id="max" class="button" href="#"></a>
+                <div id="chatPanel" class="panel panel-primary">
+                    <div class="panel-heading">
+                        <!-- <span class="glyphicon glyphicon-comment"></span>  -->
+                        Chat with Misbah's ChatBot
+
+                    </div>
+                    <div class="panel-body">
+                        <ul class="chat">
+                            <!--
+                            <li class="left clearfix"><span class="chat-img pull-left">
+                                <img src="http://placehold.it/50/55C1E7/fff&text=You" alt="User Avatar" class="img-circle" />
+                            </span>
+                            <div class="chat-body clearfix">
+                                <div class="header">
+                                    <strong class="primary-font">You</strong> 
+                                    </div>
+                                    <p>
+                                    </p>
+                                </div>
+                            </li>
+                        -->
+                            <li class="right clearfix"><span class="chat-img pull-right">
+                                <img src="http://placehold.it/50/FA6F57/fff&text=M" alt="User Avatar" class="img-circle" />
+                            </span>
+                            <div class="chat-body clearfix">
+                                <div class="header">
+
+                                    <strong class="pull-right primary-font">Misbah-ChatBot</strong>
+                                </div>
+                                <p>
+                                    Hi. I'm Misbah's Chatbot. My job is to help you guide through his portfolio. 
+                                    Please feel free to ask me questions about his:
+                                    <p>1. Projects</p>
+                                    <p>2. Work Experience</p>
+                                    <p>3. Skills</p>
+                                    <p>4. Interests</p>
+                                    <p>5. Hobbies</p>
+                                </p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="panel-footer">
+                    <form method="post" class="form-group" id="form-chat">
+                        <div class="input-group">
+                            <input type="text" id="chatmessage" name="chatmessage" class="form-control" placeholder="Enter a message" autofocus>
+                            <span class="input-group-btn">
+                                <button type="button" class="btn-warning btn-sm col-10" id="btn-chat"> Press </button>
+                            </span>
                         </div>
-                        <span class="title">oh-my-zsh</span>
-                    </div>
-                    <div class="message">
-                        <span class='prompt'><span class='user'>crearo</span><span class="at">@</span><span
-                                class="path">/home/rish/</span>><span class="caret">$</span></span>
-                        <span class="typed"></span>
-                        <form>><span class="caret">$</span>&nbsp;<input type="text" name="response"></input></form>
-                    </div>
+                    </form>
                 </div>
             </div>
         </section>
     </div>
+
+    <script>
+        $(function(){
+            $( "#btn-chat" ).click(function( event ) {
+                event.preventDefault();
+                $("#form-chat").submit();
+            });
+            $("#form-chat").submit(function(event){
+                event.preventDefault();
+                var pesan = $("#chatmessage").val();
+                $( ".chat" ).append('<li class="left clearfix"><span class="chat-img pull-left">\
+                                <img src="http://placehold.it/50/55C1E7/fff&text=You" alt="User Avatar" class="img-circle" />\
+                            </span>\
+                            <div class="chat-body clearfix">\
+                                <div class="header">\
+                                    <strong class="primary-font">You</strong> \
+                                    </div>\
+                                    <p>'+pesan+'</p>\
+                                </div>\
+                            </li>');
+                $.ajax({
+                    type: "POST",
+                    url: "/ask",
+                    data: $(this).serialize(),
+                    success: function(response) {
+                        $('#chatmessage').val('');
+                        var answer = response.answer;
+                        const chatPanel = document.getElementById("chatPanel");
+                        $(".chat").append('<li class="right clearfix"><span class="chat-img pull-right">\
+                                <img src="http://placehold.it/50/FA6F57/fff&text=M" alt="User Avatar" class="img-circle" />\
+                            </span>\
+                            <div class="chat-body clearfix">\
+                                <div class="header">\
+                                    <strong class="pull-right primary-font">Misbah-ChatBot</strong>\
+                                </div>\
+                                <p>'+answer+'</p>\
+                             </div>\
+                        </li>');
+                        $(".panel-body").stop().animate({ scrollTop: $(".panel-body")[0].scrollHeight}, 1000);
+                    },
+                    error: function(error) {
+                        console.log(error);
+                    }
+                });
+
+            });
+    
+        });
+
+    </script>
+
+
+    
     <div class="wrapper scroll-wrapper">
         <div class="top-text">
-            <p class="text-title desktop-view">Rishabh</p>
-            <p class="text-title desktop-view">Bhardwaj</p>
+            <p class="text-title desktop-view">Misbah</p>
+            <p class="text-title desktop-view">Mohammed</p>
             <!--<div class="desktop-view">
                 <img class="title-logo" src="static/images/github.svg">
                 <img class="title-logo" src="static/images/blog.svg">
                 <img class="title-logo" src="static/images/linkedin.svg">
             </div>-->
-            <p class="text-title mobile-view">Rishabh Bhardwaj</p>
+            <p class="text-title mobile-view">Misbah Mohammed</p>
+        </div>
+        <div class="top-text-small">
+            <p class="top-text">IOT | Computer Vision | Robots | Machine Learning</p>
         </div>
         <div class="middle-text">
-            <p class="text-content">I am a maker at heart; from developing challenging large-scale software to small
-                weekend hacks and proof of concept ideas to tinkering around with my 3 Lego Mindstorms sets - I love to
-                build. For my day job, I develop camera software on the Android platform. I have a deep understanding of
-                the Android graphics and camera stack. I have worked on hard problems such as real time stabilization on
-                Android, and have created a graphics library for custom rendering to multiple surfaces, applying
-                filters, and streaming.</p>
+            <strong >
+            <p class="text-content">I am an application developer and love to solve challenging problems. 
+                I'm always on a lookout to learn new technologies and come up with projects that can further 
+                enhance my understanding. I specialize in Computer Vision, Robotics, IOT and Machine Learning. 
+                I have about 6+ years of Computer Vision and Robotics experience, 3 years in IOT and two years
+                in Machine Learning. I am still a student of Machine Learning and hope to soon master it. My experience is a combination of projects done at my different jobs, internships, side projects and
+                university research projects. Please feel free to browse through my "projects" section.</p>
 
-            <p>I studied computer science at <a href="http://www.daiict.ac.in/daiict/index.html">DA-IICT</a>,
-                and took up electives in IoT and Software Architecture. </p>
 
-            <p class="text-content">One of my biggest side-projects is <a
-                    href="https://play.google.com/store/apps/details?id=rish.crearo.lifehacks&hl=en_IN">Lifehacks</a>,
-                an Android application I developed from scratch which now has over 750K installs. I designed the logo,
-                collated the content, structured the database and designed the REST API. I contribute to open source
-                occasionally - I've contributed heavily to
-                <a href="https://play.google.com/store/apps/details?id=nickrout.lenslauncher&hl=en_IN">Lens Launcher</a>,
-                an Android launcher with over 1 million installs, and have also open sourced a
-                personal project I developed during my university days for viewing
-                <a href="http://github.com/crearo/webmail">Zimbra Webmails on Android</a>.</p>
+            <p>I have a Bachelor's degree in Electronics and Communication Engineering from Osmania University (<a href="http://mjcollege.ac.in/" target="_blank"> MuffkhamJah College of Engineering and Technology</a>) with specialization in Computer Vision and Robotics. I am doing my Masters from <a href="https://www.niu.edu/ceet/" target="_blank"> Northern Illinois University</a>, with specialization in IOT, Computer Vision and ML.</p>
 
-            <p class="text-content">I have also co-authored a paper in the Conference of Data Sciences (CODS '17)
-                studying the role of temporal diversity in inferring social ties based on spatio-temporal data. (<a
-                        href="https://arxiv.org/abs/1611.03298">view paper here</a>).</p>
+            <p class="text-content">
+                I'm currently working on a Collaborated Machines project using Machine Learning. It involves use of a drone trained to navigate in an indoor environment which is also connected remotely to a couple of ground robots. These machines are designed to coordinate with each other and perform a collective task.
+            </p>
+            <p>
+                Some of my notable IOT and computer vision projects include, <a href="https://link.springer.com/chapter/10.1007/978-3-319-64352-6_48" target="_blank">Rail Track Obstruction Detection </a> (a system designed to automatically and remotely detect obstruction like sand and snow on rail tracks), <a href="http://file.scirp.org/pdf/AIT_2018042614400521.pdf" target="_blank">Collaborated Object Tracking Using PTZ Cameras </a> (system of two or more PTZ cameras designed to track an object collaboratively over the web), Infrastructure Health Monitoring, <a href="http://misbahachievements.blogspot.com/2014/08/38-crowd-monitoring-system.html?view=sidebar" target="_blank"> Crowd Monitoring </a> (counting the number of people performing pilgrimage during the sacred month of Ramadan and Hajj) and most recently an Amazon <a href="https://www.youtube.com/watch?v=e7RgrV96pZ4&feature=youtu.be" target="_blank">Alexa based Text Reader </a>for the visually impaired. You can follow my recent project posts <a href="http://misbahachievements.blogspot.com/" target="_blank"> here </a>.
+            </p>
+            <p class="text-content">
+                I love to learn new things and always at a lookout for challenging and interesting projects. I love to code and build hardware projects. In my free time I love to read books (I'm now reading Made in America by Sam Walton). I love to work out and be physically active.
+            </p>
 
-            <p class="text-content">I've been learning to play the drums since Mar 2018, enjoy solo traveling and
-                <a href="http://bhardwajrish.blogspot.com">am an active blogger</a>, where I write about my work, travel
-                and side projects. I'm extremely enthusiastic
-                about life, am in love with my job and am always on the hunt for learning something new.</p>
-
-            <p class="text-content">You can find me on <a href="http://in.linkedin.com/in/bhardwajrish/">LinkedIn</a>,
-                or email me <a href="mailto:bhardwaj.rish@gmail.com?Subject=Hello%20Rish%20-from-website" target="_top">here</a>.
+            <p class="text-content">You can find me on <a href="https://www.linkedin.com/in/misbahuddin-mohammed-83376025/">LinkedIn</a>,
+                or email me <a href="mailto:misbah4064@gmail.com?Subject=Hello%20Misbah%20-from-website" target="_top">here</a>.
             </p>
 
             <p class="text-content">Let's get in touch!</p>
 
-            <p class="text-content">Rishabh Bhardwaj</p>
+            <p class="text-content">Misbah Mohammed</p>
 
             <p class="text-content"><a href="timeline">For more about me, my timeline, read on here.</a></p>
+            </strong>
         </div>
     </div>
 </div>
 {% endblock %}
+
+

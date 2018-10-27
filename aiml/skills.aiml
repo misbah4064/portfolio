@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="1.0">
+ 
+<category>
+	<pattern>WHAT SKILLS</pattern>
+	<template>
+		<srai>WHAT ARE HIS SKILLS</srai>
+	</template>
+</category>
+
+
+<category>
+	<pattern>WHAT ARE HIS SKILLS</pattern>
+	<template>
+		<srai>WHAT ARE HIS SKILLS</srai>
+	</template>
+</category>
+
+<category>
+	<pattern>WHAT ARE YOUR MASTER'S SKILLS</pattern>
+	<template>
+		<srai>WHAT ARE HIS SKILLS</srai>
+	</template>
+</category>
+
+<category>
+	<pattern>*SKILLS*</pattern>
+	<template>
+		<srai>WHAT ARE HIS SKILLS</srai>
+	</template>
+</category>
+
+<category>
+	<pattern>WHAT ARE YOUR SKILLS*</pattern>
+	<template>
+		<srai>WHAT ARE HIS SKILLS</srai>
+	</template>
+</category>
+
+<category>
+	<pattern>SKILLS</pattern>
+	<template>
+		<srai>WHAT ARE HIS SKILLS</srai>
+	</template>
+</category>
+
+<category>
+	<pattern>WHAT ARE MISBAH'S SKILLS</pattern>
+	<template>
+		<srai>WHAT ARE HIS SKILLS</srai>
+	</template>
+</category>
+
+<category>
+	<pattern>TELL ME HIS SKILLS</pattern>
+	<template>
+		<srai>WHAT ARE HIS SKILLS</srai>
+	</template>
+</category>
+
+<category>
+	<pattern>* SKILLS *</pattern>
+	<template>
+		<srai>WHAT ARE HIS SKILLS</srai>
+	</template>
+</category>
+
+<category>
+	<pattern>WHAT SKILLS DOES HE HAVE</pattern>
+	<template>
+		<srai>WHAT ARE HIS SKILLS</srai>
+	</template>
+</category>
+
+<category>
+	<pattern>TELL ME SOMETHING ABOUT HIS SKILLS</pattern>
+	<template>
+		<srai>WHAT ARE HIS SKILLS</srai>
+	</template>
+</category>
+
+<category>
+	<pattern>MISBAH SKILLS</pattern>
+	<template>
+		<srai>WHAT ARE HIS SKILLS</srai>
+	</template>
+</category>
+
+<category>
+	<pattern>MISBAH'S SKILLS</pattern>
+	<template>
+		<srai>WHAT ARE HIS SKILLS</srai>
+	</template>
+</category>
+
+<category>
+	<pattern>WHAT ARE HIS SKILLS</pattern>
+	<template>
+		Misbah is very good with the following languages: python, C++, nodejs. 
+		However, he is proficient in Computer Vision, Embedded Programming/Robotics, IOT and Machine Learning.
+	</template>
+</category>
+
+</aiml>
