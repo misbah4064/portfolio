@@ -51,7 +51,7 @@ body {
 .fixed-wrapper {
     position: fixed;
     right: 55%;
-    top: calc(50% - 155px);
+    top: calc(50% - 255px);
     width: 40%
 }
 
