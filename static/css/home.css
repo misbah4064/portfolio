@@ -44,14 +44,14 @@ body {
 }
 
 .top-text-small{
-  font-size: 30px;
+  font-size: 20px;
   font-family: 'Roboto',sans-serif;
 }
 
 .fixed-wrapper {
     position: fixed;
     right: 55%;
-    top: calc(50% - 255px);
+    top: calc(50% - 235px);
     width: 40%
 }
 
