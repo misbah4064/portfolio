@@ -44,4 +44,38 @@
     </template>
   </category>
 
+  <category>
+    <pattern>HOW</pattern>
+    <template>
+      <random>
+        <li>I'm fine, How are you today?</li>
+        <li>I'm good, thank you for asking. How are you?</li>
+        <li>I'm doing good. What about you?</li>
+        <li>I'm good. Thanks</li>
+        <li>I'm fine. What about you?</li>
+      </random>
+    </template>
+  </category>
+
+  <category>
+    <pattern>HOW *</pattern>
+    <template>
+      <srai>HOW</srai>
+    </template>
+  </category>
+
+  <category>
+    <pattern>* HOW</pattern>
+    <template>
+      <srai>HOW</srai>
+    </template>
+  </category>
+
+  <category>
+    <pattern>HOW*</pattern>
+    <template>
+      <srai>HOW</srai>
+    </template>
+  </category>
+
 </aiml>
