@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="1.0">
+  <category>
+    <pattern>CONTACT</pattern>
+    <template>
+      <random>
+        <li>You can email Misbah at misbah4064@gmail.com</li>
+        <li>You can connect him on LinkedIn. Follow the link, https://bit.ly/2OLyF6R</li>
+      </random>
+    </template>
+  </category>
+
+  <category>
+    <pattern>WHAT IS HIS CONTACT</pattern>
+    <template>
+      <srai>CONTACT</srai>
+    </template>
+  </category>
+
+  <category>
+    <pattern>MISBAH CONTACT</pattern>
+    <template>
+      <srai>CONTACT</srai>
+    </template>
+  </category>
+
+  <category>
+    <pattern>CONTACT *</pattern>
+    <template>
+      <srai>CONTACT</srai>
+    </template>
+  </category>
+
+  <category>
+    <pattern>* CONTACT</pattern>
+    <template>
+      <srai>CONTACT</srai>
+    </template>
+  </category>
+
+  <category>
+    <pattern>* CONTACT *</pattern>
+    <template>
+      <srai>CONTACT</srai>
+    </template>
+  </category>
+
+  <category>
+    <pattern>* EMAIL *</pattern>
+    <template>
+      You can email Misbah at misbah4064@gmail.com
+    </template>
+  </category>
+
+  <category>
+    <pattern>EMAIL</pattern>
+    <template>
+      You can email Misbah at misbah4064@gmail.com
+    </template>
+  </category>
+
+  <category>
+    <pattern>EMAIL *</pattern>
+    <template>
+      You can email Misbah at misbah4064@gmail.com
+    </template>
+  </category>
+
+  <category>
+    <pattern>* EMAIL</pattern>
+    <template>
+      You can email Misbah at misbah4064@gmail.com
+    </template>
+  </category>
+
+  <category>
+    <pattern>PHONE</pattern>
+    <template>
+      I'm sorry, I'm not programmed to share that. Feel free to email him : misbah4064@gmail.com.
+    </template>
+  </category>
+
+
+  <category>
+    <pattern>PHONE *</pattern>
+    <template>
+      I'm sorry, I'm not programmed to share that. Feel free to email him : misbah4064@gmail.com.
+    </template>
+  </category>
+
+
+  <category>
+    <pattern>PHONE*</pattern>
+    <template>
+      I'm sorry, I'm not programmed to share that. Feel free to email him : misbah4064@gmail.com.
+    </template>
+  </category>
+
+
+  <category>
+    <pattern>* PHONE</pattern>
+    <template>
+      I'm sorry, I'm not programmed to share that. Feel free to email him : misbah4064@gmail.com.
+    </template>
+  </category>
+
+</aiml>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="1.0">
+  <category>
+    <pattern>HELLO</pattern>
+    <template>
+      <random>
+        <li>How are you today?</li>
+        <li>Hi</li>
+        <li>Greetings</li>
+        <li>What's up?</li>
+        <li>How can I help you today?</li>
+        <li>Thank you for reaching out to me. Pleasure meeting you today</li>
+        <li>It's a pleasure meeting you</li>
+        <li>Hi, how are you doing today?</li>
+      </random>
+    </template>
+  </category>
+
+  <category>
+    <pattern>HELLO *</pattern>
+    <template>
+      <srai>HELLO</srai>
+    </template>
+  </category>
+
+  <category>
+    <pattern>HI *</pattern>
+    <template>
+      <srai>HELLO</srai>
+    </template>
+  </category>
+
+  <category>
+    <pattern>HI</pattern>
+    <template>
+      <srai>HELLO</srai>
+    </template>
+  </category>
+
+  <category>
+    <pattern>*</pattern>
+    <template>
+      <srai>HELLO</srai>
+    </template>
+  </category>
+
+</aiml>
